@@ -1,35 +1,21 @@
 # vue-lhci
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
 ## Project Setup
 
+### Build the development docker image
+
 ```sh
-npm install
+docker build -t vue-lhci -f ./Dockerfile.dev .
 ```
 
-### Compile and Hot-Reload for Development
+### Install dependencies
 
 ```sh
-npm run dev
+docker run --rm -v $(pwd):/app vue-lhci npm install
 ```
 
-### Compile and Minify for Production
+### Start dev server
 
 ```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
+docker run -it --rm -v $(pwd):/app -p 8080:8080 vue-lhci npm run dev
 ```
