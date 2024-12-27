@@ -1,0 +1,18 @@
+{
+  "ci": {
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.8 }],
+        "categories:accessibility": ["error", { "minScore": 0.8 }]
+      }
+    },
+    "collect": {
+      "startServerCommand": "npm run dev",
+      "url": ["http://localhost:8080"],
+      "numberOfRuns": 3
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
